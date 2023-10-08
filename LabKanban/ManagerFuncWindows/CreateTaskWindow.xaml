@@ -1,0 +1,39 @@
+﻿<Window x:Class="LabKanban.ManagerFuncWindows.CreateTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LabKanban.ManagerFuncWindows"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Создание задачи" Height="315" Width="460">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/><ColumnDefinition/>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="descTextBox" Grid.ColumnSpan="3" Margin="5" materialDesign:HintAssist.Hint="Описание" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <StackPanel Grid.Row="1"  Grid.Column="1">
+            <TextBox x:Name="themeTextBox" Margin="5" materialDesign:HintAssist.Hint="Тема" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox x:Name="shortDescTextBox" Margin="5" materialDesign:HintAssist.Hint="Краткое описание" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <DatePicker x:Name="planEndDatePicker" Margin="5 17 5 0" materialDesign:HintAssist.Hint="Плановый срок" Style="{StaticResource MaterialDesignDatePicker}" />
+            <TextBox x:Name="priorTextBox" Margin="5" materialDesign:HintAssist.Hint="Приоритет" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1"  Grid.Column="2">
+            <TextBox x:Name="intCustTextBox" Margin="5" materialDesign:HintAssist.Hint="Внутренний заказчик" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox x:Name="extCustTextBox" Margin="5" materialDesign:HintAssist.Hint="Внешний заказчик" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox x:Name="justTextBox" Margin="5" materialDesign:HintAssist.Hint="Обоснование" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <StackPanel Orientation="Horizontal" Margin="5 10 5 0" >
+                <CheckBox x:Name="isPlanedCheckBox" Style="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}" />
+                <Label Content="Плановая" />
+            </StackPanel>            
+        </StackPanel>        
+        <Button Grid.Row="2" Grid.ColumnSpan="3" Click="Button_Create_Click" Content="Создать" Margin="5" />
+    </Grid>
+</Window>

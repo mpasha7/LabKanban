@@ -1,0 +1,22 @@
+﻿<Window x:Class="LabKanban.AdminFuncWindows.RedactGroupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LabKanban.AdminFuncWindows"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Редактирование группы" Height="220" Width="220">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2">
+            <TextBox x:Name="groupNameTextBox" Margin="5" materialDesign:HintAssist.Hint="Название группы" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox x:Name="newNameTextBox" Margin="5" materialDesign:HintAssist.Hint="Новое название группы" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox x:Name="managerTextBox" Margin="5" materialDesign:HintAssist.Hint="Имя и фамилия нового менеджера" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <Button Content="Создать" Margin="5" Click="Button_Redact_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

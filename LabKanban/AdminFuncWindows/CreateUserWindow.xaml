@@ -1,0 +1,23 @@
+﻿<Window x:Class="LabKanban.CreateUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LabKanban"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Создание пользователя" Height="270" Width="220">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2">
+            <TextBox x:Name="fullnameTextBox" Margin="5" materialDesign:HintAssist.Hint="Имя и фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <PasswordBox x:Name="passBox" Margin="5" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+            <TextBox x:Name="roleTextBox" Margin="5" materialDesign:HintAssist.Hint="Роль в системе" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox x:Name="rowTextBox" Margin="5" materialDesign:HintAssist.Hint="Номер строки на Канбан" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <Button Content="Создать" Margin="5" Click="Button_Create_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

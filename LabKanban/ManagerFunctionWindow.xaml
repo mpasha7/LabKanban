@@ -1,0 +1,128 @@
+﻿<Window x:Class="LabKanban.ManagerFunctionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LabKanban"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Функции руководителя" Height="800" Width="1500" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl x:Name="managerFunctions" >
+            <TabItem x:Name="Chemists">
+                <TabItem.Header>
+                    <Label Margin="20" FontSize="20" FontWeight="Bold" >Химики</Label>                    
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ListView x:Name="chemistsView" Margin="10">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Fullname}">Химик</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Role}">Роль</GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.Resources>
+                            
+                        </ListView.Resources>
+                    </ListView>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="NoSharedTasks">
+                <TabItem.Header>
+                    <Label Margin="20" FontSize="20" FontWeight="Bold" >Не разобрано</Label>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ListView x:Name="noSharedView" Margin="10">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Id</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Description}">Описание</GridViewColumn>                                
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Status}">Статус</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Priority}">Приоритет</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=IsPlanned}">План?</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Justification}">Обоснование</GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.Resources>
+
+                        </ListView.Resources>
+                    </ListView>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="CTasks">
+                <TabItem.Header>
+                    <TextBlock Margin="20" FontSize="20" FontWeight="Bold">Задачи</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ListView x:Name="tasksView" Margin="10">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Id</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Description}">Описание</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Chemist.Fullname}">Химик</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Chemist.CreateDate}">Дата создания</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Chemist.PlanedEndDate}">Срок до</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Status}">Статус</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Priority}">Приоритет</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=IsPlanned}">План?</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Justification}">Обоснование</GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.Resources>
+                        </ListView.Resources>
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <Button Content="Создать задачу" Click="Button_CreateTask_Click" Style="{StaticResource MaterialDesignFlatButton}" />
+                                <Button Content="Назначить задачу химику" Click="Button_TaskToChemist_Click" Style="{StaticResource MaterialDesignFlatButton}" />
+                                <Button Content="Архивировать задачу" Click="Button_ArchiveTask_Click" Style="{StaticResource MaterialDesignFlatButton}" />
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="AgreedTasks">
+                <TabItem.Header>
+                    <Label Margin="20" FontSize="20" FontWeight="Bold" >Согласовано</Label>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ListView x:Name="agreedView" Margin="10">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Id}">Id</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Description}">Описание</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Chemist.Fullname}">Химик</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Status}">Статус</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Priority}">Приоритет</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=IsPlanned}">План?</GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Justification}">Обоснование</GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.Resources>
+
+                        </ListView.Resources>
+                    </ListView>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="TaskSequences">
+                <TabItem.Header>
+                    <TextBlock Margin="20" FontSize="20" FontWeight="Bold" >Последовательности</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ListBox x:Name="sequencesList" Margin="10">
+
+                    </ListBox>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="TaskLists">
+                <TabItem.Header>
+                    <TextBlock Margin="20" FontSize="20" FontWeight="Bold">Параллели</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <ListBox x:Name="listsList" Margin="10">
+
+                    </ListBox>
+                </TabItem.Content>
+            </TabItem>            
+        </TabControl>
+    </Grid>
+</Window>
